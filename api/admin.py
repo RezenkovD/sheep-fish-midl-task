@@ -6,4 +6,7 @@ from api.models import Printer, Check
 
 admin.site.register(Printer)
 
-admin.site.register(Check)
+
+@admin.register(Check)
+class CheckAdmin(admin.ModelAdmin):
+    list_filter = ("printer_id", "type", "status")

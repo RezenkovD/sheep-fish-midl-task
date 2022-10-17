@@ -54,4 +54,4 @@ class Check(models.Model):
                                 help_text="link to created PDF file")
 
     def __str__(self):
-        return self.printer_id
+        return self.status
