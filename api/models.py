@@ -5,7 +5,7 @@ from django.db import models
 
 class Printer(models.Model):
     name = models.CharField(max_length=64, help_text="Printer name")
-    api_key = models.CharField(max_length=128, help_text="API access key")
+    api_key = models.CharField(max_length=128, help_text="API access key", unique=True)
     KITCHEN = "KT"
     CLIENT = "CL"
     CHOICES = [
@@ -16,3 +16,6 @@ class Printer(models.Model):
         max_length=2, choices=CHOICES, default=KITCHEN, help_text="The type of receipt printed by the printer"
     )
     point_id = models.IntegerField(help_text="The point to which the printer is bound")
+
+    def __str__(self):
+        return self.name
